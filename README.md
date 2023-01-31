@@ -66,3 +66,15 @@
 - The accuracy of the Linear Regression model has improved after taking the log of the data. Before the transformation, the test accuracy was 0.106 and validation accuracy was 0.100. After the transformation, the test accuracy increased to 0.164 and validation accuracy increased to 0.162.
 - The accuracy of the KNeighbors Regressor model has improved after transforming the features. The test accuracy improved from 0.714 to 0.735 and the validation accuracy improved from 0.705 to 0.733.
 - The Random Forest Regressor model accuracy before taking log of the features was around 0.8146 for the test data and 0.8122 for the validation data. After taking log of the features, the model accuracy was around 0.8144 for the test data and 0.8124 for the validation data. As we can see, the difference in accuracy is very minimal, indicating that taking log of the features did not have a significant impact on the model's accuracy.
+
+
+<div align="center">
+<h3> Connect with me<a href="https://gifyu.com/image/Zy2f"><img src="https://github.com/milaan9/milaan9/blob/main/Handshake.gif" width="60"></a>
+</h3> 
+<p align="center">
+    <a href="mailto:roshanguptark432@gmail.com" target="_blank"><img alt="Gmail" width="25px" src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Gmail.svg"></a> 
+    <a href="https://www.linkedin.com/in/roshan-sinha/" target="_blank"><img alt="LinkedIn" width="25px" src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Linkedin.svg"></a>
+    <a href="https://www.instagram.com/roshan_the_constant/?hl=en" target="_blank"><img alt="Instagram" width="25px" src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Instagram.svg"></a>
+    <a href="https://www.hackerrank.com/roshanguptark432" target="_blank"><img alt="HackerRank" width="25px" src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/HackerRank.svg"></a>
+    <a href="https://github.com/roshancharlie" target="_blank"><img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="Github logo" width="25px"></a>
+</p>  
