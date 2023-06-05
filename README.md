@@ -1,71 +1,33 @@
 # Myntra Discount Prediction Model Using Machine Learning
 
-### I have perform data cleaning and preprocessing on a fashion clothing dataset from Myntra. The following steps are performed:
+This repository contains a machine learning model for predicting discounts on fashion clothing items on Myntra. The project involves data cleaning, preprocessing, feature engineering, exploratory data analysis, and regression analysis. The model performance is improved by applying logarithmic scaling to the features.
 
-- Importing necessary libraries: pandas, numpy, matplotlib, seaborn, and opendatasets.
-- Downloading the dataset using the opendatasets library.
-- Filling missing values in the "DiscountOffer" column with 0 and converting the column to string data type.
-- Creating a new column "DiscountOffer_len" that contains the length of the strings in the "DiscountOffer" column.
-- Splitting the data into different groups based on the length of the "DiscountOffer" strings.
-- Segregating the discount amount into a separate column "Discount_Seg" for each group.
-- Calculating the discounted price for each group in a new column "discount_seg_price".
-- Concatenating all the groups back into one dataframe.
+## Table of Contents
+- [Data Cleaning and Preprocessing](#data-cleaning-and-preprocessing)
+- [Feature Engineering](#feature-engineering)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+- [Regression Analysis](#regression-analysis)
+- [Logarithmic Scaling](#logarithmic-scaling)
+- [Results](#results)
 
-### Then I have perform preprocessing on a data set containing information about products For Feature Engineering. The following steps are performed:
+## Data Cleaning and Preprocessing
+In this step, the dataset is cleaned and preprocessed to handle missing values and convert data types. The "DiscountOffer" column is filled with 0 for missing values and converted to string data type. A new column called "DiscountOffer_len" is created to store the length of the strings in the "DiscountOffer" column. The data is then split into different groups based on the length of the strings, and the discount amount is segregated into separate columns for each group. The discounted price is calculated for each group and stored in a new column. Finally, all the groups are concatenated back into one dataframe.
 
-- Filter out the data where discount percentage is zero into a separate dataframe called "Non_Discount_data".
-- Split the filtered data into training, validation, and test sets using the "train_test_split" function from the scikit-learn library.
-- Calculate the average rating and total reviews for each brand and create a new column "Brand_importance".
-- Merge the brand importance values back to the training, validation, and test data sets.
-- Calculate the number of unique brands in each individual category and create a new column "ind_cat_popularity".
-- Merge the individual category popularity values back to the training, validation, and test data sets.
-- Calculate the number of products in each category and create a new column "cat_popularity".
-- Merge the category popularity values back to the training, validation, and test data sets.
-- Repeat steps 4-8 for the "Non_Discount_data" dataframe.
+## Feature Engineering
+The feature engineering process involves creating new features and merging relevant information. The dataset is filtered to separate out instances where the discount percentage is zero. The filtered data is split into training, validation, and test sets. Average rating and total reviews are calculated for each brand, creating a new column called "Brand_importance." The importance values are merged back to the datasets. The number of unique brands in each category is calculated and stored in a column called "ind_cat_popularity," which is also merged back to the datasets. Additionally, the number of products in each category is calculated and stored in a column called "cat_popularity," which is merged back to the datasets.
 
-### Then I have Perform Exploratory Data Analysis (EDA) On "model_data". It uses the Seaborn and Matplotlib libraries in Python. The following steps are performed:
+## Exploratory Data Analysis (EDA)
+EDA is performed on the "model_data" dataset using the Seaborn and Matplotlib libraries. A heatmap is created to visualize the correlation between different features. The correlation between the target variable and the features is plotted as a bar chart. A pairplot is also created to visualize the relationships between variables.
 
-- A heatmap is created to show the correlation between different features in the X_train data.
-- The correlation between the target variable (y_train) and the features in X_train is plotted as a bar chart.
-- A pairplot is created to visualize the relationship between variables in the "model_data" dataset.
+## Regression Analysis
+Three regression models are used: Linear Regression, KNeighbors Regressor, and Random Forest Regressor. For each model, a model object is created, and it is fitted on the training data. The accuracy of the models is evaluated on the test and validation data using the r2_score function. The feature importance of the Random Forest Regressor model is also calculated and stored in a dataframe.
 
-### Then I have perform a regression analysis on the input data using three models: Linear Regression, KNeighbors Regressor, and Random Forest Regressor.
+## Logarithmic Scaling
+To improve the model performance, logarithmic scaling is applied to the features of the training, testing, and validation data. This transformation helps balance the magnitude of each feature and makes the data more normally distributed. Logarithm is applied to the feature values, and a small value is added to avoid taking the logarithm of zero.
 
-#### 1.Linear Regression model:
+## Results
+The model performance improves after applying logarithmic scaling to the features. The accuracy of the Linear Regression model, KNeighbors Regressor model, and Random Forest Regressor model show improvement. Detailed results and analysis can be found in the project code.
 
-- A Linear Regression model object is created using the scikit-learn library.
-- The model is fit on the training data (X_train and y_train) using the fit method.
-- The accuracy of the model is then evaluated on the test data (X_test and y_test) and validation data (X_val and y_val) using the r2_score function.
-
-#### 2.KNeighbors Regressor model:
-
-- A KNeighbors Regressor model object is created using the scikit-learn library.
-- The model is fit on the training data (X_train and y_train) using the fit method.
-- The accuracy of the model is then evaluated on the test data (X_test and y_test) and validation data (X_val and y_val) using the r2_score function.
-
-#### 3.Random Forest Regressor model:
-
-- A Random Forest Regressor model object is created using the scikit-learn library.
-- The model is fit on the training data (X_train and y_train) using the fit method.
-- The accuracy of the model is then evaluated on the test data (X_test and y_test) and validation data (X_val and y_val) using the r2_score function.
-- The feature importance of the model is also calculated and stored in a dataframe.
-
-#### 4.Prediction :
-
-- Two dataframes are created to store the actual and predicted values for both the test data and validation data.
-- The feature importance dataframe is also created to store the feature and its corresponding importance for the Random Forest Regressor model.
-- Finally, the Non_Discount_data is updated with the predicted discount value using the Random Forest Regressor model.
-
-### We observe that there is a high imbalance in the magnitude of data for each feature. The data for each feature varies significantly over the range. To improve the performance of the model, we can consider scaling the data using log transformation. This transformation can help reduce the impact of outliers and bring the data to a more comparable magnitude, thus improving the performance of the model.
-
-### I have applied logarithmic scaling to the features of the training, testing and validation data. The purpose of this transformation is to make the data more normally distributed and easier to model. The logarithm is applied to the values in the feature column and the result is stored in the same column. A small value eps (0.001) is added to the values before taking the logarithm to avoid taking the logarithm of zero.
-
-### After scaling the data, We noticed that the magnitude of each feature is more balanced and the distribution is closer to a normal distribution. This is important because some machine learning models are sensitive to the scale of the input features. By log transforming the data, we improved the alignment with a normal distribution, which can improve the performance of our model.
-
-### This Scaling Has Improved the Model Performance With Following Result:
-- The accuracy of the Linear Regression model has improved after taking the log of the data. Before the transformation, the test accuracy was 0.106 and validation accuracy was 0.100. After the transformation, the test accuracy increased to 0.164 and validation accuracy increased to 0.162.
-- The accuracy of the KNeighbors Regressor model has improved after transforming the features. The test accuracy improved from 0.714 to 0.735 and the validation accuracy improved from 0.705 to 0.733.
-- The Random Forest Regressor model accuracy before taking log of the features was around 0.8146 for the test data and 0.8122 for the validation data. After taking log of the features, the model accuracy was around 0.8144 for the test data and 0.8124 for the validation data. As we can see, the difference in accuracy is very minimal, indicating that taking log of the features did not have a significant impact on the model's accuracy.
 
 
 <div align="center">
